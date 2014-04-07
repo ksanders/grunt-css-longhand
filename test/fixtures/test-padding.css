@@ -1,0 +1,18 @@
+.classname {
+	padding: 0;
+}
+.classname {
+	padding: 1px 2px;
+}
+.classname {
+	padding: 1px 2px 3px;
+}
+.classname {
+	padding: 1px 2px 3px 4px;
+}
+.classname {
+	padding: 1% 2% 3% 4%;
+}
+.classname {
+	padding: auto;
+}

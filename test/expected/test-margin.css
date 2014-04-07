@@ -1,0 +1,36 @@
+.classname {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+.classname {
+  margin-top: 1px;
+  margin-right: 2px;
+  margin-bottom: 1px;
+  margin-left: 2px;
+}
+.classname {
+  margin-top: 1px;
+  margin-right: 2px;
+  margin-bottom: 3px;
+  margin-left: 2px;
+}
+.classname {
+  margin-top: 1px;
+  margin-right: 2px;
+  margin-bottom: 3px;
+  margin-left: 4px;
+}
+.classname {
+  margin-top: 1%;
+  margin-right: 2%;
+  margin-bottom: 3%;
+  margin-left: 4%;
+}
+.classname {
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+}

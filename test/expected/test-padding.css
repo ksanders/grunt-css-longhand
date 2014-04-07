@@ -1,0 +1,36 @@
+.classname {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+.classname {
+  padding-top: 1px;
+  padding-right: 2px;
+  padding-bottom: 1px;
+  padding-left: 2px;
+}
+.classname {
+  padding-top: 1px;
+  padding-right: 2px;
+  padding-bottom: 3px;
+  padding-left: 2px;
+}
+.classname {
+  padding-top: 1px;
+  padding-right: 2px;
+  padding-bottom: 3px;
+  padding-left: 4px;
+}
+.classname {
+  padding-top: 1%;
+  padding-right: 2%;
+  padding-bottom: 3%;
+  padding-left: 4%;
+}
+.classname {
+  padding-top: auto;
+  padding-right: auto;
+  padding-bottom: auto;
+  padding-left: auto;
+}
