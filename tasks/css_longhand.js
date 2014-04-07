@@ -64,13 +64,13 @@ module.exports = function(grunt) {
 	var longhand = function(data) {
 		var pattern;
 // margin/padding
-		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
+		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%\-]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-top: $2$3;\n  $1-right: $2$3;\n  $1-bottom: $2$3;\n  $1-left: $2$3;");
-		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%]+)[\s]+([\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
+		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%\-]+)[\s]+([\w%\-]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-top: $2$4;\n  $1-right: $3$4;\n  $1-bottom: $2$4;\n  $1-left: $3$4;");
-		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%]+)[\s]+([\w%]+)[\s]+([\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
+		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%\-]+)[\s]+([\w%\-]+)[\s]+([\w%\-]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-top: $2$5;\n  $1-right: $3$5;\n  $1-bottom: $4$5;\n  $1-left: $3$5;");
-		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%]+)[\s]+([\w%]+)[\s]+([\w%]+)[\s]+([\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
+		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%\-]+)[\s]+([\w%\-]+)[\s]+([\w%\-]+)[\s]+([\w%\-]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-top: $2$6;\n  $1-right: $3$6;\n  $1-bottom: $4$6;\n  $1-left: $5$6;");
 
 // border:

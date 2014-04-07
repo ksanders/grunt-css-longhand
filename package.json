@@ -1,6 +1,6 @@
 {
-  "name": "css-longhand",
-  "version": "0.0.1",
+  "name": "grunt-css-longhand",
+  "version": "0.0.2",
   "description": "Convert CSS shorthand properties to their longhand equivalents",
   "repository": "https://github.com/ksanders/grunt-css-longhand",
   "author": {
