@@ -73,7 +73,8 @@ module.exports = function(grunt) {
 		data = data.replace(pattern, "\n  $1-top: $2$6;\n  $1-right: $3$6;\n  $1-bottom: $4$6;\n  $1-left: $5$6;");
 
 		// border:
-
+		pattern = /[\s]*(border(?:-width|-style|-color))[\s]*:[\s]*([#\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
+		data = data.replace(pattern, "\n  border: $2$3;;");
 		// Split up properies to individual rules:
 		// two properties
 		pattern = /[\s]*(border(?:-top|-right|-bottom|-left)*)[\s]*:[\s]*([#\w%]+)[\s]+([#\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
