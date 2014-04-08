@@ -39,6 +39,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 0.0.1 - Initial release. Handles margin: and padding: with 1,2,3 or 4 values, and border:.
-
+0.0.2 - Better handling of multiple properties on a single line.
+0.0.3 - Break border-top/-right/-bottom/-left properties into border-top-width, border-top-style & border-top-color.
 ## License
 Copyright (c) 2014 K Sanders. Licensed under the MIT license.

@@ -6,12 +6,11 @@
  * Licensed under the MIT license.
  */'use strict';
 
-
 module.exports = function(grunt) {
 
 	// Please see the Grunt documentation for more information regarding task
 	// creation: http://gmruntjs.com/creating-tasks
-  
+
 	grunt.registerMultiTask('css_longhand', 'Convert CSS shorthand margin/padding/border properties to their longhand equivalents', function() {
 		var path = require('path');
 		var fs = require('fs');
@@ -36,7 +35,7 @@ module.exports = function(grunt) {
 				} else {
 					grunt.verbose.writeln('Writing ' + src.cyan + ' -> ' + dest.cyan);
 					var count = 0;
-					var data = longhand(grunt.file.read(src),count);
+					var data = longhand(grunt.file.read(src), count);
 					grunt.file.write(dest, data);
 					grunt.log.writeln('File ' + dest.cyan + ' created');
 				}
@@ -60,10 +59,10 @@ module.exports = function(grunt) {
 			return filepath;
 		}
 	};
-	
+
 	var longhand = function(data) {
 		var pattern;
-// margin/padding
+		// margin/padding
 		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%\-]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-top: $2$3;\n  $1-right: $2$3;\n  $1-bottom: $2$3;\n  $1-left: $2$3;");
 		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%\-]+)[\s]+([\w%\-]+)([\s]*|[\s]*!important[\s]*);/gm;
@@ -73,29 +72,27 @@ module.exports = function(grunt) {
 		pattern = /[\s]*(margin|padding)[\s]*:[\s]*([\w%\-]+)[\s]+([\w%\-]+)[\s]+([\w%\-]+)[\s]+([\w%\-]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-top: $2$6;\n  $1-right: $3$6;\n  $1-bottom: $4$6;\n  $1-left: $5$6;");
 
-// border:
+		// border:
 
-	// Split up properies to individual rules:
+		// Split up properies to individual rules:
 		// two properties
-		pattern = /[\s]*(border)[\s]*:[\s]*([#\w%]+)[\s]+([#\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
+		pattern = /[\s]*(border(?:-top|-right|-bottom|-left)*)[\s]*:[\s]*([#\w%]+)[\s]+([#\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1: $2$4;\n  $1: $3$4;");
 		// three properties
-		pattern = /[\s]*(border)[\s]*:[\s]*([#\w%]+)[\s]+([#\w%]+)[\s]+([#\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
+		pattern = /[\s]*(border(?:-top|-right|-bottom|-left)*)[\s]*:[\s]*([#\w%]+)[\s]+([#\w%]+)[\s]+([#\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1: $2$5;\n  $1: $3$5;\n  $1: $4$5;");
-	// single property to -top, -right, -bottom, -left
+		// single property to -top, -right, -bottom, -left
 		pattern = /[\s]*(border)[\s]*:[\s]*([#\w%]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-top: $2$3;\n  $1-right: $2$3;\n  $1-bottom: $2$3;\n  $1-left: $2$3;");
-	// border-style
+		// border-style
 		pattern = /[\s]*(border-(?:top|right|bottom|left))[\s]*:[\s]*(none|hidden|dashed|dotted|solid|double|groove|ridge|inset|outset)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-style: $2$3;");
-	// border-width
+		// border-width
 		pattern = /[\s]*(border-(?:top|right|bottom|left))[\s]*:[\s]*([\d]+[a-zA-Z]*[%]*)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-width: $2$3;");
-	// border-coloor
+		// border-coloor
 		pattern = /[\s]*(border-(?:top|right|bottom|left))[\s]*:[\s]*(#[\da-fA-F]{3,6}|[a-zA-Z]+)([\s]*|[\s]*!important[\s]*);/gm;
 		data = data.replace(pattern, "\n  $1-color: $2$3;");
-
-
 
 		return data;
 	};
